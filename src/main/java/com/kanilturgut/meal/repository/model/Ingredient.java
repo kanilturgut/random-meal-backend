@@ -1,12 +1,13 @@
 package com.kanilturgut.meal.repository.model;
 
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
+@RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Entity
 public class Ingredient implements Serializable {
 

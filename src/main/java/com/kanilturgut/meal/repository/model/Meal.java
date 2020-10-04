@@ -1,13 +1,14 @@
 package com.kanilturgut.meal.repository.model;
 
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Data
+@RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @Entity
 public class Meal implements Serializable {
 
@@ -21,4 +22,9 @@ public class Meal implements Serializable {
 
     @ManyToMany(targetEntity = Ingredient.class, cascade = CascadeType.ALL)
     private List<Ingredient> ingredients;
+
+    @OneToOne(targetEntity = MealType.class, cascade = CascadeType.ALL)
+    private MealType type;
 }
+
+

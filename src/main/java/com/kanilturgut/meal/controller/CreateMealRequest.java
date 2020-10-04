@@ -17,8 +17,12 @@ public class CreateMealRequest {
     @JsonProperty("ingredients")
     private List<IngredientsRequest> ingredients;
 
+    @JsonProperty("type")
+    private MealTypeRequest mealType;
+
     public Meal toMeal() {
         Meal meal = new Meal(name);
+        meal.setType(mealType.toMealType());
 
         if (null != ingredients) {
             List<Ingredient> collect = ingredients.stream()
